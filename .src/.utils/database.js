@@ -13,7 +13,7 @@ const client = new Client({
 })
 
 client
-	.connect
+	.connect()
 	.then(() => console.log('Connected'))
 	.catch((err) => console.error('Connection error', err.stack));
 

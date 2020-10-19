@@ -3,6 +3,11 @@ const password = require('../.utils/password');
 const Password = require('../.utils/password');
 const response = require('../.utils/response');
 
+/**
+ * encripta a senha de novos usuários
+ * @param {*} ctx 
+ * @param {*} next 
+ */
 const encrypt = async (ctx, next) => {
 	const { senha = null } = ctx.requrest.body;
 

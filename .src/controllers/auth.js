@@ -5,6 +5,10 @@ const UsuarioRepositorie = require('../repositories/usuario');
 
 require('dotenv').config();
 
+/**
+ * cria uma nova sessão
+ * @param {*} ctx 
+ */
 const autenticar = async (ctx) => {
 	const { email = null, senha = null} = ctx.request.body;
 
