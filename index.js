@@ -5,6 +5,10 @@
 3) mesmo tendo o schema, ainda precisa botar a query de criar tabela no repositories?
 
 4) como terminar a sessao?
+
+5) editar o placar de um jogo n seria PUT nao?
+
+6) nao estou conseguindo verificar a sessao
 */
 
 const Koa = require('koa')

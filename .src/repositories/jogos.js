@@ -24,7 +24,21 @@ const obterTodosOsJogos = async () => {
 	return response.rows
 }
 
+const atualizarJogo = async (id, golsCasa, golsVisitante) => {
+	const query = {
+		text: `UPDATE jogos
+		SET gols_casa = $1,
+		gols_visitante = $2
+		where id = $3 RETURNING *`,
+		values: [golsCasa, golsVisitante, id]
+	}
+
+	const response = await db.query(query);
+	return response.rows.shift();
+}
+
 module.exports = {
 	obterJogosPorRodada,
-	obterTodosOsJogos
+	obterTodosOsJogos,
+	atualizarJogo
 }

@@ -40,7 +40,25 @@ const obterTabelaDeClassificação = async (ctx) => {
 	return response(ctx, 200, { tabelaOrdenada })
 }
 
+const editarPlacar = async (ctx) => {
+	const { id = null, golsCasa = null, golsVisitante = null} = ctx.request.body;
+	
+	if (id === null || golsCasa === null || golsVisitante === null) {
+		return response(ctx, 400, { mensagem: 'Pedido mal formatado' })
+	}
+
+	const jogoAtualizado = await jogosRepositories.atualizarJogo(id, golsCasa, golsVisitante);
+	
+	const todosOsJogos = await jogosRepositories.obterTodosOsJogos();
+	let tabelaAtualizada = []
+	tabelaAtualizada = Funcoes.ordernarTabela(tabelaAtualizada, todosOsJogos);
+
+
+	return response(ctx, 200, { jogoAtualizado, tabelaAtualizada })
+}
+
 module.exports = {
 	buscarJogoPorRodada,
 	obterTabelaDeClassificação,
+	editarPlacar
 }
