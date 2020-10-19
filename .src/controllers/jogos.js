@@ -1,6 +1,7 @@
 const { builtinModules } = require('module');
 const response = require('../.utils/response')
 const jogosRepositories = require('../repositories/jogos');
+const Funcoes = require('../.utils/funcoes');
 
 /**
  * busca os jogos de uma dada rodada
@@ -26,6 +27,20 @@ const buscarJogoPorRodada = async (ctx) => {
 	return response(ctx, 200, { jogosDaRodada })
 }
 
+/**
+ * retorna a tabela ja em ordem de classificação
+ * @param {*} ctx 
+ */
+const obterTabelaDeClassificação = async (ctx) => {
+	const todosOsJogos = await jogosRepositories.obterTodosOsJogos();
+
+	let tabelaOrdenada = []
+	tabelaOrdenada = Funcoes.ordernarTabela(tabelaOrdenada, todosOsJogos);
+
+	return response(ctx, 200, { tabelaOrdenada })
+}
+
 module.exports = {
 	buscarJogoPorRodada,
+	obterTabelaDeClassificação,
 }

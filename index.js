@@ -1,10 +1,10 @@
 /* 
 
-1) quando instalei as dependencias não veio o package.json
-
 2) precisa MESMO botar eslint e prettier? 
 
 3) mesmo tendo o schema, ainda precisa botar a query de criar tabela no repositories?
+
+4) como terminar a sessao?
 */
 
 const Koa = require('koa')

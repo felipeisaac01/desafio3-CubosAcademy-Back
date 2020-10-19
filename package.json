@@ -1,7 +1,6 @@
 {
   "name": "desafio3-CubosAcademy-Back",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "dependencies": {
     "bcrypt": "^5.0.0",
@@ -26,5 +25,6 @@
   "bugs": {
     "url": "https://github.com/felipeisaac01/desafio3-CubosAcademy-Back/issues"
   },
-  "homepage": "https://github.com/felipeisaac01/desafio3-CubosAcademy-Back#readme"
+  "homepage": "https://github.com/felipeisaac01/desafio3-CubosAcademy-Back#readme",
+  "description": ""
 }

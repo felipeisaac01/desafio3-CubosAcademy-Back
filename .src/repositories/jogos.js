@@ -15,6 +15,16 @@ const obterJogosPorRodada = async (rodada) => {
 	return response.rows;
 };
 
+const obterTodosOsJogos = async () => {
+	const query = {
+		text: `SELECT * from jogos`
+	}
+
+	const response = await db.query(query);
+	return response.rows
+}
+
 module.exports = {
 	obterJogosPorRodada,
+	obterTodosOsJogos
 }

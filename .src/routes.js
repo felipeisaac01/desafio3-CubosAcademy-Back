@@ -8,5 +8,6 @@ const routes = new Router();
 routes.post('/auth', AuthControllers.autenticar);
 
 routes.get('/rodada/:id', JogosControllers.buscarJogoPorRodada);
+routes.get('/tabelaDeClassificacao', JogosControllers.obterTabelaDeClassificação);
 
 module.exports = routes;
