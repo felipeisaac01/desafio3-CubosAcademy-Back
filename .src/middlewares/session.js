@@ -11,6 +11,7 @@ const verify = async (ctx, next) => {
 	const [, token] = ctx.headers.authorization.split(' ');
 	
 	try {
+		
 		const verification = await jwt.verify(token, process.env.JWT_SECRET);
 		
 		ctx.state.userID = verification.id;

@@ -10,6 +10,6 @@ routes.post('/auth', AuthControllers.autenticar);
 
 routes.get('/rodada/:id', JogosControllers.buscarJogoPorRodada);
 routes.get('/classificacao', JogosControllers.obterTabelaDeClassificação);
-routes.put('/jogos',/*  SessionMiddleware.verify, */ JogosControllers.editarPlacar);
+routes.put('/jogos', SessionMiddleware.verify, JogosControllers.editarPlacar);
 
 module.exports = routes;
