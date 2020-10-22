@@ -18,7 +18,7 @@ const buscarJogoPorRodada = async (ctx) => {
 		return response(ctx, 400, { mensagem: "Rodada inválida" })
 	}
 
-	if (rodada < 1 || rodada > 20) {
+	if (rodada < 1 || rodada > 38) {
 		return response(ctx, 400, { mensagem: 'Rodada inválida' })
 	}
 

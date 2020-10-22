@@ -22,9 +22,9 @@ const autenticar = async (ctx) => {
 		return response(ctx, 200, { mensagem: 'Email incorreto' })
 	}
 
-	const comparison = Password.check(senha, usuario.senha);
+	const comparison = await Password.check(senha, usuario.senha);
 	if (!comparison) {
-		return response(ctx, 200, { dados: 'Senha incorreta.' })
+		return response(ctx, 200, { mensagem: 'Senha incorreta.' })
 	}
 
 	const token = await jwt.sign(

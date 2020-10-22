@@ -1,15 +1,16 @@
-const testarExistenciaDoTime = (arrayDeTimes, NomeDoTime) => {
+const testarExistenciaDoTime = (arrayDeTimes, nomeDoTime) => {
 	let timeExistente = false;
 
 	for (objtime of arrayDeTimes) {
-		if (NomeDoTime === objtime.time) {
+		if (nomeDoTime === objtime.time) {
 			timeExistente = true;
 		}	
 	}
+	// usar o find
 
 	if (!timeExistente) {
 		const novoTime = {
-			time: NomeDoTime, 
+			time: nomeDoTime, 
 			jogos: 0,
 			pontos: 0,
 			vitorias: 0,
@@ -20,16 +21,25 @@ const testarExistenciaDoTime = (arrayDeTimes, NomeDoTime) => {
 		};
 
 		arrayDeTimes.push(novoTime);
+		/* // arrayDeTimes[${nomeDoTime}] = {
+			time: nomeDoTime, 
+			jogos: 0,
+			pontos: 0,
+			vitorias: 0,
+			empates: 0,
+			derrotas: 0,
+			golsFeitos: 0,
+			golsSofridos: 0,
+		}; */
 	}
-	
-	// return arrayDeTimes;
-}
+};
 
-// const buscarTime = (nomeDoTime)
 
 const distribuirPontuacao = (arrayDeTimes, nomeDoTime, golsFeitos, golsSofridos) => {
-	testarExistenciaDoTime(arrayDeTimes, nomeDoTime)
+	testarExistenciaDoTime(arrayDeTimes, nomeDoTime);
 	
+	// procurar indice como valor de propriedade
+	// arrayDeTimes[`${nomeDoTime}`].
 	arrayDeTimes.forEach((objTime, indice) => {
 		let vitoria = 0;
 		let derrota = 0;
@@ -80,6 +90,8 @@ const ordernarTabela = (arrayDeTimes, jogos) => {
 	})
 
 	arrayDeTimes.sort(funcaoDeOrdenacao)
+
+	arrayDeTimes.forEach((time, indice) => time.colocacao = indice+1)
 
 	return arrayDeTimes
 };
